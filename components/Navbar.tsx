@@ -18,12 +18,21 @@ function cx(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-function useOutsideClick(ref: React.RefObject<HTMLElement>, onOutside: () => void) {
+/**
+ * Accepts refs that can be null (normal in React).
+ * This fixes the TS build error you saw on Vercel.
+ */
+function useOutsideClick<T extends HTMLElement>(
+  ref: React.RefObject<T | null>,
+  onOutside: () => void
+) {
   useEffect(() => {
     function handle(e: MouseEvent) {
-      if (!ref.current) return;
-      if (!ref.current.contains(e.target as Node)) onOutside();
+      const el = ref.current;
+      if (!el) return;
+      if (!el.contains(e.target as Node)) onOutside();
     }
+
     document.addEventListener("mousedown", handle);
     return () => document.removeEventListener("mousedown", handle);
   }, [ref, onOutside]);
@@ -60,7 +69,7 @@ function Dropdown({
   items: DropdownItem[];
 }) {
   const pathname = usePathname();
-  const wrapRef = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement | null>(null);
   const [open, setOpen] = useState(false);
 
   useOutsideClick(wrapRef, () => setOpen(false));
@@ -117,9 +126,7 @@ function Dropdown({
 }
 
 export default function Navbar() {
-  const nav: NavItem[] = [
-    { label: "Home", href: "/" },
-  ];
+  const nav: NavItem[] = [{ label: "Home", href: "/" }];
 
   const company: DropdownItem[] = [
     { label: "About Us", href: "/company" },
@@ -141,22 +148,22 @@ export default function Navbar() {
     { label: "Kenya", href: "/regions#kenya" },
   ];
 
-  const partners: DropdownItem[] = [
-    { label: "Partners", href: "/partners" },
-  ];
+  const partners: DropdownItem[] = [{ label: "Partners", href: "/partners" }];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0B0F14]/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3">
-          {/* If you already use an image logo elsewhere, replace this with <Image /> */}
+          {/* Replace this with your real logo <Image /> if you want */}
           <div className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center text-white font-semibold">
             C
           </div>
           <div className="leading-tight">
             <div className="text-white font-semibold">CyberOutcome</div>
-            <div className="text-xs text-white/60">Your Partner for the Future</div>
+            <div className="text-xs text-white/60">
+              Your Partner for the Future
+            </div>
           </div>
         </Link>
 
