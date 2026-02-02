@@ -1,82 +1,96 @@
+import Image from "next/image";
+
+type Service = {
+  title: string;
+  description: string;
+  icon: string; // emoji for now (easy). You can swap to SVG later.
+};
+
+const SERVICES: Service[] = [
+  {
+    title: "Cybersecurity",
+    description:
+      "We offer comprehensive cybersecurity services to protect businesses from cyber threats and data breaches, including risk assessments, vulnerability testing, and incident response planning.",
+    icon: "🛡️",
+  },
+  {
+    title: "Managed Services solution",
+    description:
+      "Our team provides proactive monitoring and maintenance of IT systems, ensuring that they are always up and running smoothly.",
+    icon: "🧰",
+  },
+  {
+    title: "Database Security",
+    description:
+      "Our auditing and monitoring services help identify suspicious activities, including unauthorized access, and prevent potential data breaches.",
+    icon: "🗄️",
+  },
+  {
+    title: "IT consulting",
+    description:
+      "Our experienced consultants work closely with clients to understand their business needs and help them develop customized technology strategies that align with their goals.",
+    icon: "🧑🏽‍💼",
+  },
+  {
+    title: "Infrastructure design and implementation",
+    description:
+      "We design and implement secure, reliable, and scalable infrastructure solutions that support business operations and growth.",
+    icon: "🏗️",
+  },
+  {
+    title: "Cloud solutions",
+    description:
+      "We help businesses migrate their IT infrastructure to the cloud, enabling them to take advantage of the latest technology and reduce costs.",
+    icon: "☁️",
+  },
+];
+
 export default function Services() {
-  const cards = [
-    {
-      title: "Professional Services",
-      icon: "🛡️",
-      image:
-        "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "From solution design to deployment, our Professional Services team provides specialist-led delivery for complex IT and security initiatives.",
-      featured: false,
-    },
-    {
-      title: "Project Management Office (PMO)",
-      icon: "🗂️",
-      image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "We bring structure, accountability, and agility to every engagement. Our PMO ensures IT projects are delivered on time and on scope.",
-      featured: true, // middle card lifted
-    },
-    {
-      title: "Managed Services",
-      icon: "🌐",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "We help enterprises offload day-to-day operational complexity. Through managed services, we monitor, maintain, and improve your IT environment.",
-      featured: false,
-    },
-  ];
-
   return (
-    <section id="services" className="bg-white text-[#0B0F14]">
-      <div className="mx-auto max-w-6xl px-4 py-20">
-        <div className="grid gap-6 md:grid-cols-3">
-          {cards.map((c) => (
-            <article
-              key={c.title}
-              className={[
-                "rounded-2xl border border-black/10 bg-white overflow-hidden shadow-sm",
-                c.featured ? "md:-mt-8 md:shadow-lg" : "",
-              ].join(" ")}
+    <section id="services" className="relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2400&q=80')] bg-cover bg-center" />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/70" />
+      {/* Blue overlay */}
+      <div className="absolute inset-0 bg-[#1E5BFF]/20 mix-blend-overlay" />
+
+      <div className="relative mx-auto max-w-6xl px-4 py-20">
+        {/* Header */}
+        <div className="text-center">
+          <h2 className="text-3xl md:text-5xl font-semibold text-white">
+            We provide a range of services
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-white/80 leading-relaxed">
+            As an Information Technology professional services company, we provide
+            top-notch solutions that cater to the specific needs of our clients.
+            Our team of experts is committed to delivering the highest quality
+            services that drive business growth and success.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="mt-14 grid gap-8 md:grid-cols-3">
+          {SERVICES.map((s) => (
+            <div
+              key={s.title}
+              className="rounded-2xl bg-white p-10 shadow-lg border border-black/5"
             >
-              {/* top row: icon + title */}
-              <div className="p-8 flex items-start gap-4">
-                <div className="h-11 w-11 rounded-xl bg-[#1E5BFF]/10 border border-[#1E5BFF]/20 flex items-center justify-center text-xl">
-                  {c.icon}
-                </div>
-                <h3 className="text-xl font-semibold leading-snug">{c.title}</h3>
-              </div>
-
-              {/* image block */}
-              <div className="px-8">
-                <div className="overflow-hidden rounded-xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={c.image}
-                    alt={c.title}
-                    className="h-56 w-full object-cover"
-                  />
+              {/* Icon circle */}
+              <div className="flex justify-center">
+                <div className="h-20 w-20 rounded-full bg-[#0B63CE] flex items-center justify-center shadow-sm">
+                  <span className="text-3xl text-white">{s.icon}</span>
                 </div>
               </div>
 
-              {/* text */}
-              <div className="p-8 pt-6">
-                <p className="text-base leading-relaxed text-black/70">
-                  {c.desc}
-                </p>
+              <h3 className="mt-8 text-2xl font-semibold text-[#0B0F14]">
+                {s.title}
+              </h3>
 
-                <div className="mt-6">
-                  <a
-                    href="#contact"
-                    className="text-sm font-semibold text-[#1E5BFF] hover:opacity-80"
-                  >
-                    Learn more →
-                  </a>
-                </div>
-              </div>
-            </article>
+              <p className="mt-4 text-[#0B0F14]/70 leading-relaxed">
+                {s.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>
