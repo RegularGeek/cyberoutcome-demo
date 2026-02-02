@@ -1,9 +1,7 @@
-import Image from "next/image";
-
 type Service = {
   title: string;
   description: string;
-  icon: string; // emoji for now (easy). You can swap to SVG later.
+  icon: string;
 };
 
 const SERVICES: Service[] = [
@@ -22,63 +20,55 @@ const SERVICES: Service[] = [
   {
     title: "Database Security",
     description:
-      "Our auditing and monitoring services help identify suspicious activities, including unauthorized access, and prevent potential data breaches.",
+      "Our auditing and monitoring services help identify suspicious activities and prevent potential data breaches.",
     icon: "🗄️",
   },
   {
     title: "IT consulting",
     description:
-      "Our experienced consultants work closely with clients to understand their business needs and help them develop customized technology strategies that align with their goals.",
-    icon: "🧑🏽‍💼",
+      "Our consultants help organizations align technology strategy with business goals through expert advisory services.",
+    icon: "🧑‍💼",
   },
   {
     title: "Infrastructure design and implementation",
     description:
-      "We design and implement secure, reliable, and scalable infrastructure solutions that support business operations and growth.",
+      "We design and implement secure, scalable infrastructure solutions that support business growth.",
     icon: "🏗️",
   },
   {
     title: "Cloud solutions",
     description:
-      "We help businesses migrate their IT infrastructure to the cloud, enabling them to take advantage of the latest technology and reduce costs.",
+      "We help businesses migrate to the cloud, enabling agility, scalability, and cost optimization.",
     icon: "☁️",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="relative overflow-hidden">
-      {/* Background image */}
+    <section className="relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2400&q=80')] bg-cover bg-center" />
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70" />
-      {/* Blue overlay */}
       <div className="absolute inset-0 bg-[#1E5BFF]/20 mix-blend-overlay" />
 
       <div className="relative mx-auto max-w-6xl px-4 py-20">
-        {/* Header */}
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-semibold text-white">
             We provide a range of services
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-white/80 leading-relaxed">
-            As an Information Technology professional services company, we provide
-            top-notch solutions that cater to the specific needs of our clients.
-            Our team of experts is committed to delivering the highest quality
-            services that drive business growth and success.
+          <p className="mx-auto mt-5 max-w-3xl text-white/80">
+            As an Information Technology professional services company, we deliver
+            high-quality solutions that drive business growth and long-term success.
           </p>
         </div>
 
-        {/* Cards */}
         <div className="mt-14 grid gap-8 md:grid-cols-3">
           {SERVICES.map((s) => (
             <div
               key={s.title}
-              className="rounded-2xl bg-white p-10 shadow-lg border border-black/5"
+              className="rounded-2xl bg-white p-10 shadow-lg"
             >
-              {/* Icon circle */}
               <div className="flex justify-center">
-                <div className="h-20 w-20 rounded-full bg-[#0B63CE] flex items-center justify-center shadow-sm">
+                <div className="h-20 w-20 rounded-full bg-[#0B63CE] flex items-center justify-center">
                   <span className="text-3xl text-white">{s.icon}</span>
                 </div>
               </div>
@@ -86,8 +76,7 @@ export default function Services() {
               <h3 className="mt-8 text-2xl font-semibold text-[#0B0F14]">
                 {s.title}
               </h3>
-
-              <p className="mt-4 text-[#0B0F14]/70 leading-relaxed">
+              <p className="mt-4 text-[#0B0F14]/70">
                 {s.description}
               </p>
             </div>
