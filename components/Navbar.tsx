@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -19,8 +20,7 @@ function cx(...classes: Array<string | false | null | undefined>) {
 }
 
 /**
- * Accepts refs that can be null (normal in React).
- * This fixes the TS build error you saw on Vercel.
+ * Outside click handler (TypeScript + Vercel safe)
  */
 function useOutsideClick<T extends HTMLElement>(
   ref: React.RefObject<T | null>,
@@ -148,17 +148,22 @@ export default function Navbar() {
     { label: "Kenya", href: "/regions#kenya" },
   ];
 
-  const partners: DropdownItem[] = [{ label: "Partners", href: "/partners" }];
+  const partners: DropdownItem[] = [
+    { label: "Partners", href: "/partners" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0B0F14]/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        {/* Brand */}
+        {/* Brand / Logo */}
         <Link href="/" className="flex items-center gap-3">
-          {/* Replace this with your real logo <Image /> if you want */}
-          <div className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center text-white font-semibold">
-            C
-          </div>
+          <Image
+            src="/logo.png"
+            alt="CyberOutcome Logo"
+            width={40}
+            height={40}
+            priority
+          />
           <div className="leading-tight">
             <div className="text-white font-semibold">CyberOutcome</div>
             <div className="text-xs text-white/60">
@@ -167,7 +172,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Nav */}
+        {/* Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
             <NavLink key={n.href} href={n.href}>
@@ -182,14 +187,12 @@ export default function Navbar() {
         </nav>
 
         {/* CTA */}
-        <div className="flex items-center gap-3">
-          <Link
-            href="/contact"
-            className="rounded-full bg-[#1E5BFF] px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
-          >
-            Get in Touch
-          </Link>
-        </div>
+        <Link
+          href="/contact"
+          className="rounded-full bg-[#1E5BFF] px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
+        >
+          Get in Touch
+        </Link>
       </div>
     </header>
   );
