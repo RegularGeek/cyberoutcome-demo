@@ -2,30 +2,103 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+
+type Slide = {
+  src: string;
+  alt: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+};
 
 export default function Hero() {
+  const slides: Slide[] = useMemo(
+    () => [
+      {
+        src: "/hero/slide-1.png",
+        alt: "CyberOutcome African Security Operations Center",
+        eyebrow: "Trusted IT Partner",
+        title: "Secure. Scale. Transform.",
+        description:
+          "CyberOutcome helps organizations strengthen cybersecurity, modernize infrastructure, and build resilient digital operations across Africa.",
+      },
+      {
+        src: "/hero/slide-2.png",
+        alt: "Pan-African cyber defense and monitoring team",
+        eyebrow: "Pan-African Cybersecurity",
+        title: "Threat Ready. Always On.",
+        description:
+          "24/7 monitoring, rapid response, and security assurance to keep critical systems safe across borders and industries.",
+      },
+      {
+        src: "/hero/slide-3.png",
+        alt: "African technology and cloud security operations",
+        eyebrow: "Cloud • Security • DevOps",
+        title: "Build with Security Built-In.",
+        description:
+          "From identity to cloud to data protection—our teams implement security that scales with your business and your customers.",
+      },
+    ],
+    []
+  );
+
+  const [index, setIndex] = useState(0);
+
+  // Auto-rotate slides (no arrows/dots)
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 7000);
+    return () => clearInterval(id);
+  }, [slides.length]);
+
+  const current = slides[index];
+
   return (
     <section className="relative h-[92vh] w-full overflow-hidden">
-      {/* Background Image (CLEAN: no baked text) */}
+      {/* Background slides */}
       <div className="absolute inset-0">
-        <Image
-          src="/hero-soc.png"
-          alt="CyberOutcome Security Operations Center"
-          fill
-          priority
-          className="object-cover object-center"
-        />
+        {slides.map((s, i) => (
+          <div
+            key={s.src}
+            className={[
+              "absolute inset-0 transition-opacity duration-700",
+              i === index ? "opacity-100" : "opacity-0",
+            ].join(" ")}
+            aria-hidden={i !== index}
+          >
+            <Image
+              src={s.src}
+              alt={s.alt}
+              fill
+              priority={i === 0}
+              className="object-cover object-center"
+            />
 
-        {/* Dark + Blue overlay for readability */}
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/80 via-[#0B1220]/55 to-transparent" />
-        <div className="absolute inset-0 bg-[#1E5BFF]/15 mix-blend-overlay" />
+            {/* Overlays for readability + brand vibe */}
+            <div className="absolute inset-0 bg-black/55" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/85 via-[#0B1220]/60 to-transparent" />
+            <div className="absolute inset-0 bg-[#1E5BFF]/15 mix-blend-overlay" />
+
+            {/* Subtle CyberOutcome logo watermark (top-left) */}
+            <div className="absolute left-6 top-24 opacity-15 md:left-12 md:top-28">
+              <Image
+                src="/logo.png"
+                alt="CyberOutcome watermark"
+                width={220}
+                height={220}
+                className="select-none"
+              />
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Content */}
+      {/* Foreground content */}
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6">
-          {/* Logo (ONLY logo overlay, not baked text) */}
+          {/* Brand block */}
           <div className="mb-6 flex items-center gap-3">
             <Image
               src="/logo.png"
@@ -42,22 +115,20 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Eyebrow */}
+          {/* Slide text */}
           <p className="mb-3 text-xs font-semibold tracking-[0.25em] text-blue-300 uppercase">
-            Trusted IT Partner
+            {current.eyebrow}
           </p>
 
-          {/* Main text */}
           <h1 className="max-w-3xl text-4xl font-bold leading-tight text-white md:text-6xl">
-            Secure. Scale. Transform.
+            {current.title}
           </h1>
 
           <p className="mt-6 max-w-2xl text-base text-white/80 md:text-lg">
-            CyberOutcome helps organizations strengthen cybersecurity, modernize
-            infrastructure, and build resilient digital operations across Africa.
+            {current.description}
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTAs */}
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/services"
