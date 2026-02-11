@@ -6,8 +6,7 @@ export const metadata = {
 
 export default function LeadershipPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      {/* Top spacing in case navbar is fixed */}
+    <main className="bg-white text-slate-900">
       <div className="pt-28 pb-16">
         <div className="mx-auto max-w-4xl px-6">
           <p className="text-xs font-semibold tracking-[0.25em] text-slate-500">
