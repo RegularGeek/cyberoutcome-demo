@@ -38,7 +38,7 @@ export default function PartnersPage() {
 
       <TrustedBy />
 
-      <Footer />
+      
     </main>
   );
 }

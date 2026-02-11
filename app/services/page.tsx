@@ -40,7 +40,7 @@ export default function ServicesPage() {
       <Services />
       <Stats />
 
-      <Footer />
+      
     </main>
   );
 }
