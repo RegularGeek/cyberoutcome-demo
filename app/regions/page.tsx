@@ -14,7 +14,7 @@ export default function RegionsPage() {
             Our Locations
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-12 text-center">
+          <div className="grid md:grid-cols-3 gap-12">
 
             {/* Nigeria */}
             <div>
@@ -22,11 +22,17 @@ export default function RegionsPage() {
               <h3 className="text-2xl font-bold text-blue-600 mb-4">
                 Nigeria
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 mb-4">
                 63a Mainland Way, Dolphin Estate,
                 <br />
                 Ikoyi, Lagos, Nigeria.
               </p>
+
+              <iframe
+                src="https://maps.google.com/maps?q=Ikoyi%20Lagos&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-64 rounded-lg border"
+                loading="lazy"
+              ></iframe>
             </div>
 
             {/* Ghana */}
@@ -35,13 +41,19 @@ export default function RegionsPage() {
               <h3 className="text-2xl font-bold text-blue-600 mb-4">
                 Ghana
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 mb-4">
                 Silver Star Towers,
                 <br />
                 4th Floor, Airport City,
                 <br />
                 Accra, Ghana.
               </p>
+
+              <iframe
+                src="https://maps.google.com/maps?q=Airport%20City%20Accra&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-64 rounded-lg border"
+                loading="lazy"
+              ></iframe>
             </div>
 
             {/* Kenya */}
@@ -50,11 +62,17 @@ export default function RegionsPage() {
               <h3 className="text-2xl font-bold text-blue-600 mb-4">
                 Kenya
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 mb-4">
                 15th Floor, I&M Towers,
                 <br />
                 Nairobi, Kenya.
               </p>
+
+              <iframe
+                src="https://maps.google.com/maps?q=Nairobi%20Kenya&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-64 rounded-lg border"
+                loading="lazy"
+              ></iframe>
             </div>
 
           </div>
