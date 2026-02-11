@@ -9,7 +9,6 @@ export default function RegionsPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6 text-center">
 
-          {/* Title */}
           <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-16">
             Our Locations
           </h2>
@@ -22,10 +21,13 @@ export default function RegionsPage() {
               <h3 className="text-2xl font-bold text-blue-600 mb-4">
                 Nigeria
               </h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-2">
                 63a Mainland Way, Dolphin Estate,
                 <br />
                 Ikoyi, Lagos, Nigeria.
+              </p>
+              <p className="text-blue-600 font-semibold mb-4">
+                +2347064000043
               </p>
 
               <iframe
@@ -41,12 +43,15 @@ export default function RegionsPage() {
               <h3 className="text-2xl font-bold text-blue-600 mb-4">
                 Ghana
               </h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-2">
                 Silver Star Towers,
                 <br />
                 4th Floor, Airport City,
                 <br />
                 Accra, Ghana.
+              </p>
+              <p className="text-blue-600 font-semibold mb-4">
+                +233503859838
               </p>
 
               <iframe
@@ -62,10 +67,13 @@ export default function RegionsPage() {
               <h3 className="text-2xl font-bold text-blue-600 mb-4">
                 Kenya
               </h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-2">
                 15th Floor, I&M Towers,
                 <br />
                 Nairobi, Kenya.
+              </p>
+              <p className="text-blue-600 font-semibold mb-4">
+                +254114103212
               </p>
 
               <iframe
