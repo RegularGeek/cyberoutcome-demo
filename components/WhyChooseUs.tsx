@@ -37,18 +37,13 @@ export default function WhyChooseUs() {
             Why Choose CyberOutcome?
           </h2>
 
-          <p className="mt-6 text-lg text-black/70 leading-relaxed">
-            CyberOutcome delivers <span className="font-semibold text-black">enterprise-grade cybersecurity</span>,{" "}
-            <span className="font-semibold text-black">cloud</span>, and{" "}
-            <span className="font-semibold text-black">IT services</span> designed to{" "}
-            <span className="font-semibold text-black">secure</span>,{" "}
-            <span className="font-semibold text-black">optimise</span>, and{" "}
-            <span className="font-semibold text-black">transform</span> your business.
-            With proven delivery and a modern operations mindset, we help organisations achieve{" "}
-            <span className="font-semibold text-black">secure systems</span>,{" "}
-            <span className="font-semibold text-black">reliable uptime</span>, and{" "}
-            <span className="font-semibold text-black">scalable growth</span>.
-          </p>
+          <p className="mt-6 text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+  Cyberoutcome delivers enterprise-grade cybersecurity, cloud, and IT services
+  designed to secure, optimise, and transform your business. With proven delivery
+  and a modern operations mindset, we help organisations achieve secure systems,
+  reliable uptime, and scalable growth.
+</p>
+
         </div>
 
         {/* 3 highlight cards (still TigerLogic-like, but richer) */}
