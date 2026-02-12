@@ -16,7 +16,7 @@ export default function LeadershipPage() {
           </h1>
 
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
-            At Cyberoutcome, leadership isn’t a title — it’s accountability.
+            At Cyberoutcome, leadership isn’t a title, it’s accountability.
             Senior experience where uptime, risk, and trust are non-negotiable.
           </p>
 
