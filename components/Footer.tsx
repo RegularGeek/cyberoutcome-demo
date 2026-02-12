@@ -60,16 +60,32 @@ export default function Footer() {
           {/* Contact */}
           <div className="md:col-span-4">
             <p className="text-base font-semibold">Contact</p>
-            <div className="mt-4 space-y-3 text-sm text-white/70">
-              <p>
+
+            <div className="mt-4 space-y-5 text-sm text-white/70">
+              <div>
+                <p className="text-white/60">Email</p>
                 <a className="hover:text-white" href={SALES_MAILTO}>
                   sales@cyberoutcome.com
                 </a>
-              </p>
-              <p>Nigeria • Ghana • Kenya</p>
+              </div>
+
+              <div>
+                <p className="text-white/60">Nigeria</p>
+                <p>63a Mainland Way, Dolphin Estate, Ikoyi, Lagos, Nigeria.</p>
+              </div>
+
+              <div>
+                <p className="text-white/60">Ghana</p>
+                <p>Silver Star Towers, 4th Floor, Airport City, Accra, Ghana.</p>
+              </div>
+
+              <div>
+                <p className="text-white/60">Kenya</p>
+                <p>15th Floor, I&amp;M Towers, Nairobi, Kenya.</p>
+              </div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-7">
               <a
                 href={SALES_MAILTO}
                 className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
