@@ -12,7 +12,7 @@ export default function WhyChooseUs() {
     },
     {
       title: "Deeply Specialized Teams",
-      desc: "Senior expertise across cloud, appsec, IAM, and operations.",
+      desc: "Senior expertise across Cybersecurity, Infrastructure and Artificial Intelligence.",
       icon: "🧠",
     },
   ];
@@ -43,7 +43,6 @@ export default function WhyChooseUs() {
   and a modern operations mindset, we help organisations achieve secure systems,
   reliable uptime, and scalable growth.
 </p>
-
         </div>
 
         {/* 3 highlight cards (still TigerLogic-like, but richer) */}
