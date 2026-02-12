@@ -1,50 +1,39 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhyChooseUs from "@/components/WhyChooseUs";
 import Link from "next/link";
+
+const SALES_MAILTO =
+  "mailto:sales@cyberoutcome.com?subject=Cyberoutcome%20Enquiry";
 
 export default function CompanyPage() {
   return (
-    <main className="min-h-screen bg-[#0B0F14] text-white">
-      <Navbar />
+    <main className="bg-white">
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <p className="text-xs font-semibold tracking-[0.25em] text-slate-500">
+          COMPANY
+        </p>
+        <h1 className="mt-4 text-5xl font-extrabold tracking-tight text-slate-900 md:text-6xl">
+          About Cyberoutcome
+        </h1>
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+          We help organisations strengthen cybersecurity, modernize
+          infrastructure, and build resilient digital operations across Africa.
+        </p>
 
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2400&q=80')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-[#1E5BFF]/25 mix-blend-overlay" />
+        <div className="mt-10 flex flex-wrap gap-4">
+          <a
+            href={SALES_MAILTO}
+            className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+          >
+            Contact Us
+          </a>
 
-        <div className="relative mx-auto max-w-6xl px-4 py-20 md:py-28">
-          <p className="text-white/70 text-sm uppercase tracking-[0.25em]">
-            Company
-          </p>
-          <h1 className="mt-4 text-4xl md:text-6xl font-semibold">
-            About CyberOutcome
-          </h1>
-          <p className="mt-6 max-w-3xl text-white/80 text-lg leading-relaxed">
-            We deliver enterprise-grade cybersecurity, cloud, and managed
-            services across Africa—focused on secure, reliable, scalable outcomes.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="rounded-full bg-[#1E5BFF] px-6 py-3 text-sm font-semibold hover:opacity-90"
-            >
-              Contact Us
-            </Link>
-            <Link
-              href="/services"
-              className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold hover:bg-white/10"
-            >
-              View Services
-            </Link>
-          </div>
+          <Link
+            href="/company/leadership"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+          >
+            Leadership
+          </Link>
         </div>
       </section>
-
-      <WhyChooseUs />
-
-      
     </main>
   );
 }
