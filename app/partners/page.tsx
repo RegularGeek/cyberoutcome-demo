@@ -38,11 +38,8 @@ export default function PartnersPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
-              Partner logos
+              Partners
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
-              A snapshot of organisations we’ve supported through cybersecurity, cloud, and DevOps delivery.
-            </p>
           </div>
 
           <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-10">
@@ -71,7 +68,7 @@ export default function PartnersPage() {
                 href="mailto:sales@cyberoutcome.com?subject=Partner%20Logos%20Update"
                 className="mt-4 inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
               >
-                Email sales@cyberoutcome.com
+                Talk to us
               </a>
             </div>
           </div>
