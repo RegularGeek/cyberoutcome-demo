@@ -1,44 +1,82 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import TrustedBy from "@/components/TrustedBy";
-import Link from "next/link";
+import Image from "next/image";
+
+const PARTNER_LOGOS = [
+  { src: "/partners/partner-1.png", alt: "Partner 1" },
+  { src: "/partners/partner-2.png", alt: "Partner 2" },
+  { src: "/partners/partner-3.png", alt: "Partner 3" },
+  { src: "/partners/partner-4.png", alt: "Partner 4" },
+  { src: "/partners/partner-5.png", alt: "Partner 5" },
+  { src: "/partners/partner-6.png", alt: "Partner 6" },
+];
 
 export default function PartnersPage() {
   return (
-    <main className="min-h-screen bg-[#0B0F14] text-white">
-      <Navbar />
-
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=2400&q=80')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-[#1E5BFF]/25 mix-blend-overlay" />
-
-        <div className="relative mx-auto max-w-6xl px-4 py-20 md:py-28">
-          <p className="text-white/70 text-sm uppercase tracking-[0.25em]">
-            Partners
-          </p>
-          <h1 className="mt-4 text-4xl md:text-6xl font-semibold">
-            Trusted By & Partnerships
+    <main className="bg-white">
+      {/* Hero */}
+      <section className="bg-slate-950 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs tracking-[0.35em] text-slate-300">PARTNERS</p>
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white md:text-6xl">
+            Trusted by our Partners
           </h1>
-          <p className="mt-6 max-w-3xl text-white/80 text-lg leading-relaxed">
-            We work with organisations across finance, fintech, and energy. This
-            demo page showcases client trust signals and partner positioning.
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
+            Cyberoutcome partners with forward-thinking organisations to secure infrastructure, reduce risk,
+            and improve operational resilience across Africa.
           </p>
 
-          <div className="mt-8">
-            <Link
-              href="/contact"
-              className="rounded-full bg-[#1E5BFF] px-6 py-3 text-sm font-semibold hover:opacity-90"
-            >
-              Talk to us
-            </Link>
-          </div>
+          <a
+            href="mailto:sales@cyberoutcome.com?subject=Partnership%20Inquiry"
+            className="mt-10 inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+          >
+            Talk to us
+          </a>
         </div>
       </section>
 
-      <TrustedBy />
+      {/* Logos */}
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+              Partner logos
+            </h2>
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+              A snapshot of organisations we’ve supported through cybersecurity, cloud, and DevOps delivery.
+            </p>
+          </div>
 
-      
+          <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-10">
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-6">
+              {PARTNER_LOGOS.map((logo) => (
+                <div
+                  key={logo.src}
+                  className="flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-6 shadow-sm"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={180}
+                    height={80}
+                    className="h-10 w-auto object-contain opacity-90"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-xl border border-slate-200 bg-white p-5 text-center">
+              <p className="text-sm text-slate-600">
+                Want to feature your organisation here or discuss a partnership?
+              </p>
+              <a
+                href="mailto:sales@cyberoutcome.com?subject=Partner%20Logos%20Update"
+                className="mt-4 inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+              >
+                Email sales@cyberoutcome.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
