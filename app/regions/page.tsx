@@ -22,10 +22,10 @@ export default function RegionsPage() {
                 Ikoyi, Lagos, Nigeria.
               </p>
               <a
-                href="tel:+2347064000043"
+                href="tel:+2348037750099"
                 className="text-blue-600 font-semibold mb-4 inline-block hover:underline"
               >
-                +2347064000043
+                +2348037750099
               </a>
 
               <iframe
