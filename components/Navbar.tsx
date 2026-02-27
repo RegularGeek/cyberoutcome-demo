@@ -98,17 +98,17 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  href="/services/infrastructure"
+                  href="/services/infrastructure &-devops"
                   className="block rounded-lg px-4 py-2 text-sm hover:bg-slate-800"
                 >
-                  Infrastructure
+                  Infrastructure & DevOps
                 </Link>
 
                 <Link
-                  href="/services/devops"
+                  href="/services/artificial-intelligence"
                   className="block rounded-lg px-4 py-2 text-sm hover:bg-slate-800"
                 >
-                  DevOps
+                  Artificial Intelligence
                 </Link>
               </div>
             )}
