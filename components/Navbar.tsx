@@ -98,10 +98,10 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  href="/services/infrastructure &-devops"
+                  href="/services/infrastructure"
                   className="block rounded-lg px-4 py-2 text-sm hover:bg-slate-800"
                 >
-                  Infrastructure & DevOps
+                  Infrastructure
                 </Link>
 
                 <Link
